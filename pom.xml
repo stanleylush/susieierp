@@ -1,36 +1,68 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion><!-- 指定了当前POM模型的版本，对于Maven2及Maven 3来说，它只能是4.0.0。 -->
+  <!-- groupId，artifactId和version三行。这三个元素定义了一个项目基本的坐标 -->
+  <groupId>com.susie</groupId><!--定义了项目属于哪个组 -->
+  <artifactId>ierp</artifactId><!--定义了当前Maven项目在组中唯一的ID -->
+  <version>0.0.1-SNAPSHOT</version><!--指定了项目当前的版本 SNAPSHOT意为快照，说明该项目还处于开发中，是不稳定的版本。 -->
+  <packaging>jar</packaging><!--指定打包类型，可以是war，jar，pom,ear等形式 -->
 
-  <groupId>com.susie</groupId>
-  <artifactId>ierp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>ierp</name>
-  <url>http://maven.apache.org</url>
-
+  <name>susie-ierp</name><!--项目的名称, Maven产生的文档用 -->
+  <url>http://maven.apache.org</url><!--项目主页的URL, Maven产生的文档用-->
+  
+  <!-- 本地maven地址 -->
+  <!-- <repositories>
+      <repository>
+          <id>central</id>
+          <url>file://F:\project\m2repository</url>
+      </repository>
+  </repositories>-->
+  <!--合成多个模块：一个项目有多个模块，也叫做多重模块，或者合成项目-->
+  <!--
+  <modules>
+    <module>nonbankcard-common</module>
+  </modules>
+  -->
+  <!--父项目的坐标。如果项目中没有规定某个元素的值.父项目的packaging节点值是pom-->
+  <!--
+  <parent>
+       <groupId></groupId>
+       <artifactId></artifactId>
+       <version></version>
+       父项目的pom.xml文件的相对路径。相对路径允许你选择一个不同的路径。
+       默认值是../pom.xml。Maven首先在构建当前项目的地方寻找父项目的pom，
+       其次在文件系统的这个位置（relativePath位置），
+       然后在本地仓库
+       最后在远程仓库寻找父项目的pom。
+       <relativePath></relativePath>
+   </parent>
+   -->
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.5.RELEASE</spring.version>
   </properties>
 
   <dependencies>
+  	<!--spring核心依赖-->
   	<dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
         <version>${spring.version}</version>
     </dependency>
+    <!--spring ioc依赖 -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-beans</artifactId>
         <version>${spring.version}</version>
     </dependency>
+    <!--spring 扩展依赖 -->
   	<dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
         <version>${spring.version}</version>
     </dependency>
+    <!-- spring web相关依赖 -->
     <dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
@@ -41,6 +73,103 @@
 	    <artifactId>spring-webmvc</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
+	<!--spring dao层依赖-->
+	<dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-jdbc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-tx</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+	<!-- pageHelper分页依赖包 -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <!--json依赖包 -->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib-ext-spring</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    <!--1.志相关依赖 -->
+    <!--slf4j规范接口 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.12</version>
+    </dependency>
+    <!--logback日志-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.1.7</version>
+    </dependency>
+    <!--实现slf4j接口并整合，是log4j的一个 改良版本-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.7</version>
+    </dependency>
+    <!-- access访问模块与Servlet容器集成提供通过Http来访问日志的功能 -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-access</artifactId>
+      <version>1.1.7</version>
+    </dependency>
+    <!--2. 数据库相关依赖-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- 阿里druid数据源,优化数据库操作 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.18</version>
+    </dependency>
+    <!--3. DAO框架:Mybatis依赖-->
+    <!--mybatis依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    <!--spring只针对ibatis做了依赖,所以mybatis自身实现的spring整合依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+    <!--Servlet web相关依赖-->
+    <!--jsp相关依赖 -->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!--jackson相关依赖 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.5.4</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -48,4 +177,27 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <!-- 功能集标签，在此标签下面可以定义一系列的插件以实现功能 
+         主要用于编译设置，一般包含两种标签：resource和plugins，前者用于排除或包含某些资源文件，后者用来设置插件。
+         例如：在用Junit4写测试程序，用到了@test等注解，
+         但是由于Maven的核心插件之一compiler插件默认只支持编译java1.3，因此需要配置该插件使其支持java5，需要修改pom文件如下：
+  -->
+  <!--
+   <build>
+     <finalName>susie-ierp</finalName>--><!-- 当前项目的 <artifactId>标示-->
+     <!-- Maven的编译插件默认是JDK 1.4的编译级别，为了让Maven的编译插件使用JDK5.0的编译级别，需要对编译插件作如下配置 -->
+     <!--
+     <plugins>
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-compiler-plugin</artifactId>
+             <version>2.0</version>
+             <configuration>
+                 <source>1.5</source>
+                 <target>1.5</target>
+             </configuration>
+         </plugin>
+     </plugins>
+   </build>-->
 </project>
