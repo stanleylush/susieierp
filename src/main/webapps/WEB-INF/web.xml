@@ -4,13 +4,28 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 						http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
-  <display-name>test</display-name>
+  <display-name>ierp</display-name>
+  <!-- Bootstrap listener to start up and shut down Spring's root WebApplicationContext. Simply delegates to 
+	 ContextLoader as well as to ContextCleanupListener. 
+	This listener should be registered after org.springframework.web.util.Log4jConfigListener in web.xml, if the 
+ 	 latter is used. 
+	As of Spring 3.1, ContextLoaderListener supports injecting the root web application context via the 
+	 ContextLoaderListener(WebApplicationContext) constructor, allowing for programmatic configuration in 
+	 Servlet 3.0+ environments. See org.springframework.web.WebApplicationInitializer for usage examples. 
+	See Also:
+	 setContextInitializers
+	 org.springframework.web.WebApplicationInitializer
+	 org.springframework.web.util.Log4jConfigListener -->
+  <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring/applicationContext.xml</param-value>
+  </context-param>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
