@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <classPathEntry location="../Users/lu/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
+    <classPathEntry location="/Users/lu/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
     <context id="context1" targetRuntime="MyBatis3">
     	<!-- 注释 -->  
         <commentGenerator >  
@@ -16,7 +16,7 @@
 		    <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->  
 		    <property name="forceBigDecimals" value="false"/>  
 		</javaTypeResolver>
-        <javaModelGenerator targetPackage="com.susie.model" targetProject="/ierp/src/main/resources/mybatis">
+        <javaModelGenerator targetPackage="com.susie.model" targetProject="src/main/resources/mybatis">
         	<!-- 是否在当前路径下新加一层schema,eg：
         		false:路径com.oop.eksp.user.model， 
         		true:com.oop.eksp.user.model.[schemaName] -->  
@@ -24,10 +24,10 @@
             <!-- 是否针对string类型的字段在set的时候进行trim调用 -->  
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="com.susie.data" targetProject="/ierp/src/main/resources/mybatis">
+        <sqlMapGenerator targetPackage="com.susie.data" targetProject="src/main/resources/mybatis">
         	<property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
-        <javaClientGenerator targetPackage="com.susie.data" targetProject="/ierp/src/main/resources/mybatis" 
+        <javaClientGenerator targetPackage="com.susie.data" targetProject="src/main/resources/mybatis" 
         	type="XMLMAPPER">
         	<property name="enableSubPackages" value="false" />
         </javaClientGenerator>
