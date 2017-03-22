@@ -1,10 +1,14 @@
 package com.susie.ierp.mybatis;
 
-import com.susie.ierp.mybatis.Bill;
-import com.susie.ierp.mybatis.BillExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import javax.annotation.Resource;
+
+import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
+
+//@MapperScan
+//@Resource
 public interface BillMapper {
 
 	/**
