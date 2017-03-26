@@ -3,11 +3,23 @@ package com.susie.ierp.bill.dao;
 import org.junit.Test;
 
 public class JavaTest {
-
+	
+	/**
+	 * 
+	 */
 	@Test
-	public void test() {
+	public void testVerbose(){
+		System.out.print("hello world!");
+	}
+
+	/**
+	 * 1、Bootstrap Classloader (C++) -Xbootclasspath <br>
+	 * 2、Extention Classloader -Djava.ext.dir <br>
+	 * 3、Application\System Classloader -Djava.class.path
+	 */
+	@Test
+	public void testClassLoader() {
 		/**
-		 * Bootstrap Classloader (C++) -Xbootclasspath
 		 * /Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/resources.jar
 		 * :/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/rt.jar
 		 * :/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/sunrsasign.jar
@@ -20,7 +32,6 @@ public class JavaTest {
 		System.out.println(System.getProperty("sun.boot.class.path"));
 		
 		/**
-		 * Extention Classloader -Djava.ext.dir
 		 * sun.misc.Launcher$ExtClassLoader
 		 * /Users/lu/Library/Java/Extensions
 		 * :/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/ext
@@ -32,7 +43,6 @@ public class JavaTest {
 		System.out.println(System.getProperty("java.ext.dirs"));
 		
 		/**
-		 * Application\System Classloader -Djava.class.path
 		 * sun.misc.Launcher$AppClassLoader
 		 * /Users/lu/mycode/code/susieierp/target/test-classes
 		 * :/Users/lu/mycode/code/susieierp/target/classes
