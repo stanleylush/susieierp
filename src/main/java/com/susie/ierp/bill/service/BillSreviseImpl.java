@@ -16,29 +16,24 @@ public class BillSreviseImpl implements IBillSrevise {
 	@Autowired
 	private BillMapper billMapper;
 
-	@Override
 	public Bill getBillById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<Bill> getAllBill() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public int addBill(Bill bill) {
 		return billMapper.insert(bill);
 	}
 
-	@Override
 	public int updateBill(Bill bill) {
 		return billMapper.updateByPrimaryKey(bill);
 	}
 
-	@Override
 	public int deleteBill(int id) {
 		return billMapper.deleteByPrimaryKey(id);
 	}
