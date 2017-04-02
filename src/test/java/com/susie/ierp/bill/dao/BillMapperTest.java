@@ -24,25 +24,39 @@ public class BillMapperTest {
 	
 	@Autowired
 	IBillSrevise billService;
-
+	/**
+	 * 测试 无transactional 不回滚
+	 */
 	@Test
 	public void testInsert() {
-		
 		Bill bill = generateObj();
-		
 		int result = billMapper.insert(bill);
 		Assert.assertEquals(1, result);
 		throw new RuntimeException();
 	}
 
+	/**
+	 * 测试 transactional 回滚
+	 */
+	@Test
 	@Transactional
-	public void testTransactionFailed(){
+	public void testTransactionRollback(){
 		billService.addBill(generateObj());
 		billService.deleteBill(1);
 		throw new RuntimeException();
 	}
+	
+	@Test
+	public void testRedis(){
+		billService.getBillById(1).getTs();
+		billService.getBillById(2).getTs();
+		billService.getBillById(1).getTs();
+	}
 
-
+	/**
+	 * 生成测试数据
+	 * @return
+	 */
 	private Bill generateObj() {
 		Bill bill = new Bill();
 		bill.setBillNo(String.valueOf(Math.random()));

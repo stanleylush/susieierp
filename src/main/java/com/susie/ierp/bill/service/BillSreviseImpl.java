@@ -17,8 +17,7 @@ public class BillSreviseImpl implements IBillSrevise {
 	private BillMapper billMapper;
 
 	public Bill getBillById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return billMapper.selectByPrimaryKey(id);
 	}
 
 	public List<Bill> getAllBill() {
