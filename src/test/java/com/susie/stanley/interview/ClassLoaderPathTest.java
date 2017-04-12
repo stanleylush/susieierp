@@ -1,4 +1,4 @@
-package com.susie.stanley.learn.test;
+package com.susie.stanley.interview;
 
 import org.junit.Test;
 

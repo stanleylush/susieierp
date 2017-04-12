@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-	
+	<!-- 加载properties文件 -->
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
@@ -20,52 +20,47 @@
             </list>
         </property>
 	</bean>
-	
+	<!-- 配置数据源 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
 	    <property name="url" value="${jdbc_url}" />
 	    <property name="username" value="${jdbc_user}" />
 	    <property name="password" value="${jdbc_password}" />
-	
 	    <property name="filters" value="stat" />
-	
 	    <property name="maxActive" value="20" />
 	    <property name="initialSize" value="1" />
 	    <property name="maxWait" value="60000" />
 	    <property name="minIdle" value="1" />
-	
 	    <property name="timeBetweenEvictionRunsMillis" value="60000" />
 	    <property name="minEvictableIdleTimeMillis" value="300000" />
-	
 	    <property name="testWhileIdle" value="true" />
 	    <property name="testOnBorrow" value="false" />
 	    <property name="testOnReturn" value="false" />
-	
 	    <property name="poolPreparedStatements" value="true" />
 	    <property name="maxOpenPreparedStatements" value="20" />
 	</bean>
-	
+	<!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	<!-- 配置 使用注解声明事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<!-- MyBatis Configuration -->
+	<!-- Spring整合MyBatis -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
+	    <!-- 加载mybatis属性（缓存，延迟加载等等） -->
+	    <property name="configLocation" value="classpath:mybatisContext.xml" />
 	    <!-- 自动扫描mapping.xml文件，**表示迭代查找 -->
 	    <property name="mapperLocations" value="classpath:com/susie/ierp/**/*.xml" />
-	    <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->
-	    <property name="configLocation" value="classpath:mybatisContext.xml" />
 	</bean>
-	
-	<!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
+	<!-- 扫描DAO接口所在包名 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	    <property name="basePackage" value="com.susie.ierp.*" />
 	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
-	<!-- redis configuration -->
+	<!-- Redis Configuration -->
 	<!-- redis数据源 -->
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
 	    <property name="maxIdle" value="${redis.maxIdle}" />

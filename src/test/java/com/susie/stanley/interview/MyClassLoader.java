@@ -1,4 +1,4 @@
-package com.susie.stanley.learn.test;
+package com.susie.stanley.interview;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
