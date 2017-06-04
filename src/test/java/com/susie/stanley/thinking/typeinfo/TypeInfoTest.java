@@ -1,11 +1,11 @@
-package com.susie.stanley.interview.typeinfo;
+package com.susie.stanley.thinking.typeinfo;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
 
-import com.susie.stanley.interview.typeinfo.classobj.ToyTest;
+import com.susie.stanley.thinking.typeinfo.classobj.ToyTest;
 
 public class TypeInfoTest {
 

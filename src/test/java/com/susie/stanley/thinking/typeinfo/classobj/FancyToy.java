@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.classobj;
+package com.susie.stanley.thinking.typeinfo.classobj;
 
 public class FancyToy extends Toy implements HasBatteries, Waterproof, Shoots{
 	

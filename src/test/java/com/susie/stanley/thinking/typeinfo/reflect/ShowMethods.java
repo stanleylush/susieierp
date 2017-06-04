@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.reflect;
+package com.susie.stanley.thinking.typeinfo.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

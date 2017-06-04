@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.factory;
+package com.susie.stanley.thinking.typeinfo.factory;
 
 public class Filter extends Part {
 

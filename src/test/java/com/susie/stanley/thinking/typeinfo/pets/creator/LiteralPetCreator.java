@@ -1,21 +1,21 @@
-package com.susie.stanley.interview.typeinfo.pets.creator;
+package com.susie.stanley.thinking.typeinfo.pets.creator;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.susie.stanley.interview.typeinfo.pets.Cat;
-import com.susie.stanley.interview.typeinfo.pets.Cymric;
-import com.susie.stanley.interview.typeinfo.pets.Dog;
-import com.susie.stanley.interview.typeinfo.pets.EgyptianMau;
-import com.susie.stanley.interview.typeinfo.pets.Hamster;
-import com.susie.stanley.interview.typeinfo.pets.Manx;
-import com.susie.stanley.interview.typeinfo.pets.Mouse;
-import com.susie.stanley.interview.typeinfo.pets.Mutt;
-import com.susie.stanley.interview.typeinfo.pets.Pet;
-import com.susie.stanley.interview.typeinfo.pets.Pug;
-import com.susie.stanley.interview.typeinfo.pets.Rat;
-import com.susie.stanley.interview.typeinfo.pets.Rodent;
+import com.susie.stanley.thinking.typeinfo.pets.Cat;
+import com.susie.stanley.thinking.typeinfo.pets.Cymric;
+import com.susie.stanley.thinking.typeinfo.pets.Dog;
+import com.susie.stanley.thinking.typeinfo.pets.EgyptianMau;
+import com.susie.stanley.thinking.typeinfo.pets.Hamster;
+import com.susie.stanley.thinking.typeinfo.pets.Manx;
+import com.susie.stanley.thinking.typeinfo.pets.Mouse;
+import com.susie.stanley.thinking.typeinfo.pets.Mutt;
+import com.susie.stanley.thinking.typeinfo.pets.Pet;
+import com.susie.stanley.thinking.typeinfo.pets.Pug;
+import com.susie.stanley.thinking.typeinfo.pets.Rat;
+import com.susie.stanley.thinking.typeinfo.pets.Rodent;
 
 public class LiteralPetCreator extends PetCreator {
 	
