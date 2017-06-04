@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo;
+package com.susie.stanley.thinking.typeinfo;
 
 public class Triangle extends Shape {
 

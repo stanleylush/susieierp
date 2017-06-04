@@ -1,11 +1,11 @@
-package com.susie.stanley.interview.typeinfo.pets.creator;
+package com.susie.stanley.thinking.typeinfo.pets.creator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import com.susie.stanley.interview.typeinfo.pets.Pet;
+import com.susie.stanley.thinking.typeinfo.pets.Pet;
 
 public abstract class PetCreator {
 

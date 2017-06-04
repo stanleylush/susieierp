@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.pets;
+package com.susie.stanley.thinking.typeinfo.pets;
 
 public class Hamster extends Rodent {
 

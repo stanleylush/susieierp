@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.factory;
+package com.susie.stanley.thinking.typeinfo.factory;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.susie.stanley.interview.typeinfo.classliterals;
+package com.susie.stanley.thinking.typeinfo.classliterals;
 
 import java.util.Random;
 

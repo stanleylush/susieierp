@@ -1,8 +1,8 @@
-package com.susie.stanley.interview.typeinfo.pets.creator;
+package com.susie.stanley.thinking.typeinfo.pets.creator;
 
 import java.util.HashMap;
 
-import com.susie.stanley.interview.typeinfo.pets.Pet;
+import com.susie.stanley.thinking.typeinfo.pets.Pet;
 
 public class PetCount {
 	
